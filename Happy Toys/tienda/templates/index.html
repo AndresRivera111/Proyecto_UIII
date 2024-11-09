@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Toys</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <!-- Encabezado -->
+    <header>
+        <h1>Happy Toys</h1>
+    </header>
+
+    <!-- Barra de navegación -->
+    <nav>
+        <ul class="menu">
+            <li><a href="{% url 'index' %}">Inicio</a></li>
+            <li> <a href="{% url 'carrito' %}">Ver Carrito</a></li>
+        </ul>
+    </nav>
+
+    <div>
+        {% for producto in productos %}
+        <div>
+            <h3>{{ producto.nombre }}</h3>
+            <p>{{ producto.descripcion }}</p>
+            <p>Precio: ${{ producto.precio }}</p>
+            <a href="{% url 'agregar_carrito' producto.id %}">Añadir al Carrito</a>
+        </div>
+        <hr>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

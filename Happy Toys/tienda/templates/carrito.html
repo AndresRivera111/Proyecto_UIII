@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrito de Compras</title>
+</head>
+<body>
+    <h1>Carrito de Compras</h1>
+    <div>
+        {% for item in items %}
+        <p>{{ item.producto.nombre }} - ${{ item.producto.precio }} x {{ item.cantidad }}</p>
+        <a href="{% url 'eliminar_carrito' item.id %}">Eliminar</a>
+        <hr>
+        {% endfor %}
+        <p>Total: ${{ total }}</p>
+    </div>
+    <a href="/">Volver al Catálogo</a>
+</body>
+</html>
